@@ -4,6 +4,8 @@
 #include <chrono>
 #include <cstdlib>
 #include <iomanip>
+#include <filesystem>
+#include <random>
 #include "arquivos.hpp"
 
 using namespace std;
@@ -22,7 +24,21 @@ void pausar() {
     cin.get();
 }
 
+void criar_estrutura_pastas(const string& pasta_algoritmo) {
+    string categorias[] = {"Arquivos de Entrada", "Arquivos de Saida", "Arquivos de Tempo"};
+    string tipos[] = {"Crescente", "Decrescente", "Random"};
+
+    for (const auto& cat : categorias) {
+        for (const auto& tipo : tipos) {
+            string caminho = pasta_algoritmo + "/" + cat + "/" + tipo;
+            filesystem::create_directories(caminho);
+        }
+    }
+}
+
 void processar_instancia(string nome_algoritmo, string pasta_algoritmo, string tipo_entrada, int tamanho, FuncaoOrdenacao funcao) {
+    criar_estrutura_pastas(pasta_algoritmo);
+
     // Caminhos dos arquivos de acordo com o padrão exigido
     string arq_entrada = pasta_algoritmo + "/Arquivos de Entrada/" + tipo_entrada + "/Entrada" + tipo_entrada + to_string(tamanho) + ".txt";
     string arq_saida   = pasta_algoritmo + "/Arquivos de Saida/"   + tipo_entrada + "/Saida"   + tipo_entrada + to_string(tamanho) + ".txt";
@@ -31,6 +47,11 @@ void processar_instancia(string nome_algoritmo, string pasta_algoritmo, string t
     vector<int> v(tamanho);
    
     cout << "> EXECUTANDO " << nome_algoritmo << " | Entrada: " << tipo_entrada << " | Tamanho: " << tamanho << "\n\n";
+
+   
+    random_device rd;   // obter semente para o random
+    mt19937 gen(rd());  // para gerar o motor com a semente
+    uniform_int_distribution<int> dist(1, tamanho * 10);  // para gerar intervalo com <random>
     
     // 1. GERAR/ESCREVER ARQUIVO DE ENTRADA
     ofstream entrada(arq_entrada);
@@ -49,7 +70,7 @@ void processar_instancia(string nome_algoritmo, string pasta_algoritmo, string t
         } else if (tipo_entrada == "Decrescente") {
             v[i] = tamanho - i;
         } else { // Random
-            v[i] = rand() % (tamanho * 10);
+            v[i] = dist(gen);
         }
         entrada << v[i] << "\n";
     }
