@@ -12,6 +12,20 @@ void insertion_sort(int v[], int n) {
     }
 }
 
+void selection_sort(int v[], int n) {
+    int i, j, min, chave;
+    for (i = 0; i < n-1; i++) {
+        min = i;
+        for (j = i + 1; j < n; j++) {
+            if (v[j] < v[min])
+                min = j;              
+        }
+        chave = v[i]; 
+        v[i] = v[min]; 
+        v[min] = chave;
+    }
+}
+
 // void mergeSort(int v[], int n) {
 //     // Implementação futura do Merge Sort
 // }

@@ -100,6 +100,7 @@ void exibir_menu() {
         limpar_tela();
         cout << "==== ALGORITMOS DE ORDENACAO ====\n\n";
         cout << "1. Insertion Sort\n";
+        cout << "2. Selection Sort\n";
         cout << "0. Sair\n";
         cout << "\nEscolha uma opcao: ";
         cin >> op;
@@ -108,6 +109,9 @@ void exibir_menu() {
         switch (op) {
             case 1:
                 menu_entrada("INSERTION SORT", "Insertion Sort", insertion_sort);
+                break;
+            case 2:
+                menu_entrada("SELECTION SORT", "Selection Sort", selection_sort);
                 break;
             // case 2:
             //     menu_entrada("MERGE SORT", "Merge Sort", mergeSort);
@@ -125,95 +129,3 @@ void exibir_menu() {
         }
     } while (op != 0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// void menu_algoritmo(string nome_algoritmo, string nome_pasta, FuncaoOrdenacao funcao) {
-//     int opcao;
-//     do {
-//         limpar_tela();
-//         cout << "==== " << nome_algoritmo << "====\n\n";
-//         cout << "1. Gerar instancias (10 a 1.000.000)\n";
-//         cout << "2. Executar ordenacao em uma instancia especifica\n";
-//         cout << "3. Executar bateria completa de testes (18 arquivos)\n";
-//         cout << "0. Voltar ao Menu Principal\n";
-//         cout << "----------------------------------------\n";
-//         cout << "Escolha uma opcao: ";
-//         cin >> opcao;
-
-//         limpar_tela();
-//         switch (opcao) {
-//             case 1:
-//                 cout << "Gerando arquivos na pasta: " << nomePasta << "...\n";
-//                 pausar();
-//                 break;
-//             case 2:
-//                 cout << "Executando " << nomeAlgoritmo << " em uma instancia...\n";
-//                 pausar();
-//                 break;
-//             case 3:
-//                 cout << "Executando bateria completa para " << nomeAlgoritmo << "...\n";
-//                 pausar();
-//                 break;
-//             case 0:
-//                 cout << "Retornando ao menu principal...\n";
-//                 break;
-//             default:
-//                 cout << "Opcao invalida!\n";
-//                 pausar();
-//                 break;
-//         }
-//     } while (opcao != 0);
-// }
-
-// void exibirMenuPrincipal() {
-//     int opcao;
-//     do {
-//         limpar_tela();
-//         cout << "========================================\n";
-//         cout << "   ANALISE DE ALGORITMOS DE ORDENACAO   \n";
-//         cout << "========================================\n";
-//         cout << "1. Insertion Sort\n";
-//         cout << "2. Merge Sort\n";
-//         cout << "3. Quick Sort\n";
-//         cout << "0. Sair do Programa\n";
-//         cout << "----------------------------------------\n";
-//         cout << "Escolha uma opcao: ";
-//         cin >> opcao;
-
-//         limpar_tela();
-//         switch (opcao) {
-//             case 1:
-//                 menuAlgoritmoGenerico("INSERTION SORT", "Insertion Sort", insertionSort);
-//                 break;
-//             case 2:
-//                 menuAlgoritmoGenerico("MERGE SORT", "Merge Sort", mergeSort);
-//                 break;
-//             case 3:
-//                 menuAlgoritmoGenerico("QUICK SORT", "Quick Sort", quickSort);
-//                 break;
-//             case 0:
-//                 cout << "Encerrando o programa...\n";
-//                 break;
-//             default:
-//                 cout << "Opcao invalida!\n";
-//                 pausar();
-//                 break;
-//         }
-//     } while (opcao != 0);
-// }
