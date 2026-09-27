@@ -101,6 +101,7 @@ void exibir_menu() {
         cout << "==== ALGORITMOS DE ORDENACAO ====\n\n";
         cout << "1. Insertion Sort\n";
         cout << "2. Selection Sort\n";
+        cout << "3. Bubble Sort\n";
         cout << "0. Sair\n";
         cout << "\nEscolha uma opcao: ";
         cin >> op;
@@ -112,6 +113,9 @@ void exibir_menu() {
                 break;
             case 2:
                 menu_entrada("SELECTION SORT", "Selection Sort", selection_sort);
+                break;
+            case 3:
+                menu_entrada("BUBBLE SORT", "Bubble Sort", bubble_sort);
                 break;
             // case 2:
             //     menu_entrada("MERGE SORT", "Merge Sort", mergeSort);

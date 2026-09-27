@@ -6,6 +6,8 @@ typedef void (*FuncaoOrdenacao)(int[], int);
 
 void insertion_sort(int v[], int n);
 void selection_sort(int v[], int n);
+void bubble_sort(int v[], int n);
+
 
 // void merge_sort(int v[], int n);
 // void quick_sort(int v[], int n);
