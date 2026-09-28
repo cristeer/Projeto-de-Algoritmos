@@ -91,8 +91,6 @@ void menu_entrada(string nome_algoritmo, string pasta_algoritmo, FuncaoOrdenacao
     } while (op != 0);
 }
 
-
-
 // Menu Principal
 void exibir_menu() {
     int op;
@@ -102,6 +100,7 @@ void exibir_menu() {
         cout << "1. Insertion Sort\n";
         cout << "2. Selection Sort\n";
         cout << "3. Bubble Sort\n";
+        cout << "4. Shell Sort\n";
         cout << "0. Sair\n";
         cout << "\nEscolha uma opcao: ";
         cin >> op;
@@ -117,6 +116,8 @@ void exibir_menu() {
             case 3:
                 menu_entrada("BUBBLE SORT", "Bubble Sort", bubble_sort);
                 break;
+            case 4:
+                menu_entrada("SHELL SORT", "Shell Sort", shell_sort);
             // case 2:
             //     menu_entrada("MERGE SORT", "Merge Sort", mergeSort);
             //     break;

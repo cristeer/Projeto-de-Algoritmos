@@ -7,9 +7,7 @@ using namespace std;
 
 
 void limpar_tela();
-
 void pausar();
-
 
 void criar_estrutura_pastas(const string& pasta_algoritmo);
 

@@ -39,6 +39,64 @@ void bubble_sort(int v[], int n) {
     }
 }
 
+void shell_sort(int v[], int n) {
+    int i, j, aux;
+
+    int h = 1;
+    while (h < n) {
+        h = h * 3 + 1;
+    }
+
+    while (h > 0) {
+        for (i = h; i < n; i++) {
+            aux = v[i];
+            j = i;
+
+            while (j >=h && aux < v[j-h]) {
+                v[j] = v[j-h];
+                j -= h;
+            }
+            v[j] = aux;
+        }
+        h = (h-1) / 3;
+    }
+}
+
+
+
+
+
+
+// void shell_sort(int v[], int n) {
+//     int gap, i, j, temp;
+
+//     // 1. Reduz o gap dividindo por 2 a cada iteração (Sequência de Shell)
+//     for (gap = n / 2; gap > 0; gap /= 2) {
+
+//         // 2. Aplica um Insertion Sort modificado para elementos espaçados pelo 'gap'
+//         for (i = gap; i < n; i++) {
+//             temp = v[i];
+
+//             // 3. Desloca os elementos maiores que 'temp' para a direita (com salto 'gap')
+//             for (j = i; j >= gap && v[j - gap] > temp; j -= gap) {
+//                 v[j] = v[j - gap];
+//             }
+
+//             // 4. Insere o elemento na sua posição correta do subvetor
+//             v[j] = temp;
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
 // void mergeSort(int v[], int n) {
 //     // Implementação futura do Merge Sort
 // }
