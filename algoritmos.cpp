@@ -1,3 +1,4 @@
+#include <vector>
 #include "algoritmos.hpp"
 
 void insertion_sort(int v[], int n) {
@@ -62,44 +63,53 @@ void shell_sort(int v[], int n) {
     }
 }
 
+/*
+OBS: Para o merge sort foi necessário separar a funcao recursiva do merge sort para padronizar
+com a mesma interface dos outros algoritmos na funcao de ordenacao principal do programa 
+que recebe dois parametros (FuncaoOrdenacao)
+*/ 
 
+void merge (int v[], int esq, int meio, int dir) {
+    std::vector<int> arr((dir - esq) + 1);
 
+    int e = esq, d = meio + 1, k = 0;
 
+    while (e <= meio && d <= dir) {
+        if(v[e] <= v[d])
+            arr[k++] = v[e++];
+        else
+            arr[k++] = v[d++];
+    }
 
+    //se acabar o vetor da dir primeiro, copiar o restante da esq;
+    while (e <= meio) {
+        arr[k++] = v[e++];
+    }
 
-// void shell_sort(int v[], int n) {
-//     int gap, i, j, temp;
+    //se acabar o vetor da esq primeiro, copiar o restante da dir;
+    while (d <= dir) {
+        arr[k++] = v[d++];
+    }
 
-//     // 1. Reduz o gap dividindo por 2 a cada iteração (Sequência de Shell)
-//     for (gap = n / 2; gap > 0; gap /= 2) {
+    for (int i = esq; i <= dir; i++) {
+        v[i] = arr[i - esq];
+    }
+}
 
-//         // 2. Aplica um Insertion Sort modificado para elementos espaçados pelo 'gap'
-//         for (i = gap; i < n; i++) {
-//             temp = v[i];
+void merge_sort_recursivo (int v[], int esq, int dir) {
+    if (esq < dir) {
+        int meio = esq + (dir - esq) / 2;
+        merge_sort_recursivo(v, esq, meio);
+        merge_sort_recursivo(v, meio + 1, dir);
+        merge(v, esq, meio, dir);
+    }
+}
 
-//             // 3. Desloca os elementos maiores que 'temp' para a direita (com salto 'gap')
-//             for (j = i; j >= gap && v[j - gap] > temp; j -= gap) {
-//                 v[j] = v[j - gap];
-//             }
-
-//             // 4. Insere o elemento na sua posição correta do subvetor
-//             v[j] = temp;
-//         }
-//     }
-// }
-
-
-
-
-
-
-
-
-
-
-// void mergeSort(int v[], int n) {
-//     // Implementação futura do Merge Sort
-// }
+void merge_sort (int v[], int n) {
+    if (n > 1) {
+        merge_sort_recursivo(v, 0, n - 1);
+    }
+}
 
 // void quickSort(int v[], int n) {
 //     // Implementação futura do Quick Sort

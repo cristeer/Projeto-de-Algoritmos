@@ -9,8 +9,10 @@ void selection_sort(int v[], int n);
 void bubble_sort(int v[], int n);
 void shell_sort(int v[], int n);
 
+void merge (int v[], int esq, int meio, int dir);
+void merge_sort_recursivo(int v[], int esq, int dir);
+void merge_sort (int v[], int n);
 
-// void merge_sort(int v[], int n);
 // void quick_sort(int v[], int n);
 
 #endif
