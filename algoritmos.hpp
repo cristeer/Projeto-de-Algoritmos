@@ -13,6 +13,7 @@ void merge (int v[], int esq, int meio, int dir);
 void merge_sort_recursivo(int v[], int esq, int dir);
 void merge_sort (int v[], int n);
 
-// void quick_sort(int v[], int n);
+void quick_sort_v1(int v[], int n);
+void quick_sort_v2(int v[], int n);
 
 #endif

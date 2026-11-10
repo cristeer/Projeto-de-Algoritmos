@@ -102,6 +102,8 @@ void exibir_menu() {
         cout << "3. Bubble Sort\n";
         cout << "4. Shell Sort\n";
         cout << "5. Merge Sort\n";
+        cout << "6. Quick Sort v1 [pivo central]\n";
+        cout << "7. Quick Sort v2 [mediana dos tres]\n";
         cout << "0. Sair\n";
         cout << "\nEscolha uma opcao: ";
         cin >> op;
@@ -123,10 +125,12 @@ void exibir_menu() {
             case 5:
                 menu_entrada("MERGE SORT", "Merge Sort", merge_sort);
                 break;
-
-            // case 6:
-            //     menu_entrada("QUICK SORT", "Quick Sort", quickSort);
-            //     break;
+            case 6:
+                menu_entrada("QUICK SORT V1 [PIVO CENTRAL]", "Quick Sort v1", quick_sort_v1);
+                break;
+            case 7:
+                menu_entrada("QUICK SORT V2 [MEDIANA DOS TRES]", "Quick Sort v2", quick_sort_v2);
+                break;
             case 0:
                 cout << "Encerrando o programa...\n";
                 break;

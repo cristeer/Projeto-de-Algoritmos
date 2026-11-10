@@ -1,7 +1,9 @@
 output/*
 estrutura do proj.txt
 main.exe
-Insertion Sort/*
-Selection Sort/*
-Bubble Sort/*
-Merge Sort/*
+Insertion Sort/
+Selection Sort/
+Bubble Sort/
+Merge Sort/
+.vscode/
+output/

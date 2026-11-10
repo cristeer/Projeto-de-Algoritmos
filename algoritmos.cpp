@@ -1,4 +1,5 @@
 #include <vector>
+#include <utility>
 #include "algoritmos.hpp"
 
 void insertion_sort(int v[], int n) {
@@ -111,6 +112,62 @@ void merge_sort (int v[], int n) {
     }
 }
 
-// void quickSort(int v[], int n) {
-//     // Implementação futura do Quick Sort
-// }
+namespace {
+
+int partition(int v[], int p, int r) {
+    int pivo = v[r];
+    int i = p - 1;
+
+    for (int j = p; j < r; j++) {
+        if (v[j] <= pivo) {
+            i++;
+            std::swap(v[i], v[j]);
+        }
+    }
+
+    std::swap(v[i + 1], v[r]);
+    return i + 1;
+}
+
+int partition_mediana_tres(int v[], int p, int r) {
+    int meio = p + (r - p) / 2;
+
+    if (v[p] > v[meio]) std::swap(v[p], v[meio]);
+    if (v[p] > v[r]) std::swap(v[p], v[r]);
+    if (v[meio] > v[r]) std::swap(v[meio], v[r]);
+
+    std::swap(v[meio], v[r]);
+    return partition(v, p, r);
+}
+
+void quicksort(int v[], int p, int r) {
+    if (p < r) {
+        int meio = p + (r - p) / 2;
+        std::swap(v[meio], v[r]);
+        int q = partition(v, p, r);
+        quicksort(v, p, q - 1);
+        quicksort(v, q + 1, r);
+    }
+}
+
+void quicksort_mediana_tres(int v[], int p, int r) {
+    if (p < r) {
+        int q = partition_mediana_tres(v, p, r);
+        quicksort_mediana_tres(v, p, q - 1);
+        quicksort_mediana_tres(v, q + 1, r);
+    }
+}
+
+}
+
+void quick_sort_v1(int v[], int n) {
+    if (n > 1) {
+        quicksort(v, 0, n - 1);
+    }
+}
+
+void quick_sort_v2(int v[], int n) {
+    if (n > 1) {
+        quicksort_mediana_tres(v, 0, n - 1);
+    }
+}
