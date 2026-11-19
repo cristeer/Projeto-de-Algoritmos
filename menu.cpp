@@ -104,6 +104,7 @@ void exibir_menu() {
         cout << "5. Merge Sort\n";
         cout << "6. Quick Sort v1 [pivo central]\n";
         cout << "7. Quick Sort v2 [mediana dos tres]\n";
+        cout << "8. Heap Sort [min-heap, decrescente]\n";
         cout << "0. Sair\n";
         cout << "\nEscolha uma opcao: ";
         cin >> op;
@@ -130,6 +131,9 @@ void exibir_menu() {
                 break;
             case 7:
                 menu_entrada("QUICK SORT V2 [MEDIANA DOS TRES]", "Quick Sort v2", quick_sort_v2);
+                break;
+            case 8:
+                menu_entrada("HEAP SORT [MIN-HEAP, DECRESCENTE]", "Heap Sort", heap_sort);
                 break;
             case 0:
                 cout << "Encerrando o programa...\n";

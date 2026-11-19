@@ -65,9 +65,7 @@ void shell_sort(int v[], int n) {
 }
 
 /*
-OBS: Para o merge sort foi necessário separar a funcao recursiva do merge sort para padronizar
-com a mesma interface dos outros algoritmos na funcao de ordenacao principal do programa 
-que recebe dois parametros (FuncaoOrdenacao)
+OBS: Para o merge sort foi necessário separar a funcao recursiva do merge sort para padronizar com a mesma interface dos outros algoritmos na funcao de ordenacao principal do programa que recebe dois parametros (FuncaoOrdenacao)
 */ 
 
 void merge (int v[], int esq, int meio, int dir) {
@@ -169,5 +167,40 @@ void quick_sort_v1(int v[], int n) {
 void quick_sort_v2(int v[], int n) {
     if (n > 1) {
         quicksort_mediana_tres(v, 0, n - 1);
+    }
+}
+
+// HEAP SORT
+void min_heapify(int v[], int n, int i) {
+    int left = 2*i + 1;
+    int right = 2*i + 2;
+    int menor = i;
+
+    if (left < n && v[left] < v[menor]) {
+        menor = left;
+    }
+
+    if (right < n && v[right] < v[menor]) {
+        menor = right;
+    }
+
+    if (menor != i) {
+        std::swap(v[i], v[menor]);
+        min_heapify(v, n, menor);
+    }
+}
+
+void build_min_heap(int v[], int n) {
+    for (int i = n / 2 - 1; i >= 0; i--) {
+        min_heapify(v, n, i);
+    }
+}
+
+void heap_sort(int v[], int n) {
+    build_min_heap(v, n);
+
+    for (int i = n - 1; i > 0; i--) {
+        std::swap(v[0], v[i]);
+        min_heapify(v, i, 0);
     }
 }

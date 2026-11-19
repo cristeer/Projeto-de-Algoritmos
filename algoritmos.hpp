@@ -16,4 +16,8 @@ void merge_sort (int v[], int n);
 void quick_sort_v1(int v[], int n);
 void quick_sort_v2(int v[], int n);
 
+void min_heapify(int v[], int n, int i);
+void build_min_heap(int v[], int n);
+void heap_sort(int v[], int n);
+
 #endif
